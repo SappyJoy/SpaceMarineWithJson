@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -15,7 +16,16 @@ public class CommandFilterLessThanHealth extends Command {
 
     @Override
     public void execute(Scanner sc) throws FileNotFoundException, IOException {
-        float health = sc.nextFloat();
+        float health;
+        while (true) {
+            try {
+                health = sc.nextFloat();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong input");
+                sc.next();
+            }
+        }
         for (SpaceMarine spaceMarine : lhm.values()) {
             if (spaceMarine.getHealth() < health)
                 System.out.println(spaceMarine);

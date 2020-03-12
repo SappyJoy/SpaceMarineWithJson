@@ -29,14 +29,4 @@ public class CommandRemoveGreater extends Command {
         lhm.clear();
         lhm.putAll(copyLhm);
     }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
-    }
 }

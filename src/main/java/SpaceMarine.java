@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
@@ -9,6 +10,7 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
+    private static int curId = 0;
 
     public LocalDateTime getCreationDate() {
         return creationDate;
@@ -24,7 +26,7 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
     public SpaceMarine(String name, Coordinates coordinates, float health, boolean loyal, Weapon weaponType,
                        MeleeWeapon meleeWeapon, Chapter chapter) {
         this();
-        this.id = name.hashCode();
+        this.id = ++curId;
         this.name = name;
         this.coordinates = coordinates;
         this.health = health;
@@ -34,9 +36,10 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
         this.chapter = chapter;
     }
 
-    public SpaceMarine(String name, Coordinates coordinates, java.time.LocalDateTime creationDate, float health,
+    public SpaceMarine(int id, String name, Coordinates coordinates, java.time.LocalDateTime creationDate, float health,
                        boolean loyal, Weapon weaponType, MeleeWeapon meleeWeapon, Chapter chapter) {
         this(name, coordinates, health, loyal, weaponType, meleeWeapon, chapter);
+        this.id = id;
         this.creationDate = creationDate;
     }
 
@@ -65,22 +68,30 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
     }
 
     void scan(Scanner sc) {
-        System.out.print("\tInput a name: ");
-        name = sc.next();
-        id = name.hashCode();
-        System.out.print("\tInput coordinates(x, y): ");
-        coordinates = new Coordinates(sc.nextLong(), sc.nextLong());
-        System.out.print("\tInput health: ");
-        health = sc.nextFloat();
-        System.out.print("\tInput loyal(true or false): ");
-        loyal = sc.nextBoolean();
-        System.out.print("\tInput weapon type\n\t" +
-                "(PLASMA_GUN, COMBI_PLASMA_GUN, FLAMER, INFERNO_PISTOL, HEAVY_FLAMER): ");
-        weaponType = Weapon.valueOf(sc.next().toUpperCase());
-        System.out.print("\tInput melee weapon(CHAIN_SWORD, CHAIN_AXE, POWER_BLADE): ");
-        meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
-        System.out.print("\tInput chapter(name, count of marines and world): ");
-        chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
+        while (true) {
+            try {
+                System.out.print("\tInput a name: ");
+                name = sc.next();
+                id = ++curId;
+                System.out.print("\tInput coordinates(x, y): ");
+                coordinates = new Coordinates(sc.nextLong(), sc.nextLong());
+                System.out.print("\tInput health: ");
+                health = sc.nextFloat();
+                System.out.print("\tInput loyal(true or false): ");
+                loyal = sc.nextBoolean();
+                System.out.print("\tInput weapon type\n\t" +
+                        "(PLASMA_GUN, COMBI_PLASMA_GUN, FLAMER, INFERNO_PISTOL, HEAVY_FLAMER): ");
+                weaponType = Weapon.valueOf(sc.next().toUpperCase());
+                System.out.print("\tInput melee weapon(CHAIN_SWORD, CHAIN_AXE, POWER_BLADE): ");
+                meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
+                System.out.print("\tInput chapter(name, count of marines and world): ");
+                chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
+                break;
+            } catch (InputMismatchException | IllegalArgumentException e) {
+                System.out.println("Wrong Input");
+                sc.nextLine();
+            }
+        }
     }
 
 

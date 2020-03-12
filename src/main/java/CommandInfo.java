@@ -18,7 +18,7 @@ public class CommandInfo extends Command {
     }
 
     @Override
-    public void execute(ScannerEnvironment sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) throws FileNotFoundException, IOException {
         String typeOfCollection = lhm.getClass().getSimpleName();
         java.time.LocalDateTime creationDate = LocalDateTime.MAX;
         for (SpaceMarine spaceMarine : lhm.values()) {

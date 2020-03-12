@@ -1,8 +1,5 @@
 import java.io.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class CommandExecuteScript extends Command {
@@ -34,10 +31,24 @@ public class CommandExecuteScript extends Command {
         // Создать новый файл, если имя файла указано некорректно запросить повторить ввод
         while (in.hasNextLine()) {
             // !!!!! Если присутствует комманда execute_script, проверить не ссылается ли она на тот же файл
-            String name = in.next();
+            String name;
+            while (true) {
+                try {
+                    name = in.next();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Wrong input");
+                }
+            }
             Command cmd = commandManager.getCommand(name);
-            cmd.execute(in);
-            history.add(name);
+            if (name.equals("execute_script")) {
+                System.out.println("You can't use \'execute_script\' in script file");
+            } else if (cmd == null) {
+                System.out.println("Command not found");
+            } else {
+                cmd.execute(in);
+                history.add(name);
+            }
         }
     }
 

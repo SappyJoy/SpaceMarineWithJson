@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -14,7 +15,16 @@ public class CommandRemoveKey extends Command {
 
     @Override
     public void execute(Scanner sc) {
-        int removeKey = sc.nextInt();
+        int removeKey;
+        while (true) {
+            try {
+                removeKey = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong input");
+                sc.next();
+            }
+        }
         for (Integer key : lhm.keySet()) {
             if (key.equals(removeKey)) {
                 lhm.remove(removeKey);

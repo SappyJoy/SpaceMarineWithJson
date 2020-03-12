@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,7 +17,16 @@ public class CommandUpdate extends Command {
 
     @Override
     public void execute(Scanner sc) {
-        int id = sc.nextInt();
+        int id;
+        while (true) {
+            try {
+                id = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong input");
+                sc.next();
+            }
+        }
         SpaceMarine sm = new SpaceMarine();
         sm.scan(sc);
         sm.setId(id);

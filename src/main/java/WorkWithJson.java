@@ -41,6 +41,8 @@ public class WorkWithJson {
 
                 jsonSMString = jsonKeyValue.get("SpaceMarine").toString();
                 JSONObject jsonSM = new JSONObject(jsonSMString);
+
+                int id = jsonSM.getInt("id");
                 String name = jsonSM.getString("name");
 
                 String jsonSMCoordinatesString = jsonSM.get("coordinates").toString();
@@ -66,7 +68,7 @@ public class WorkWithJson {
                 String world = jsonChapter.getString("world");
                 Chapter chapter = new Chapter(nameChapter, marinesCount, world);
 
-                SpaceMarine spaceMarine = new SpaceMarine(name, coordinates, creationDate, health, loyal, weaponType, meleeWeapon, chapter);
+                SpaceMarine spaceMarine = new SpaceMarine(id, name, coordinates, creationDate, health, loyal, weaponType, meleeWeapon, chapter);
 
                 lhm.put(key, spaceMarine);
             }

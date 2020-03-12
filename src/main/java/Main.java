@@ -50,10 +50,22 @@ public class Main {
 
 
         while(true) {
-            String name = sc.next();
+            String name;
+            while (true) {
+                try {
+                    name = sc.next();
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Wrong input");
+                }
+            }
             Command cmd = commandManager.getCommand(name);
-            cmd.execute(sc);
-            history.add(name);
+            if (cmd == null) {
+                System.out.println("Command not found");
+            } else {
+                cmd.execute(sc);
+                history.add(name);
+            }
         }
     }
 

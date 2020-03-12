@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -15,7 +16,18 @@ public class CommandCountByWeaponType extends Command {
 
     @Override
     public void execute(Scanner sc) throws FileNotFoundException, IOException {
-        Weapon weaponType = Weapon.valueOf(sc.next().toUpperCase());
+        String value;
+        Weapon weaponType;
+        while (true) {
+            try {
+                value = sc.next();
+                weaponType = Weapon.valueOf(value.toUpperCase());
+                break;
+            } catch (InputMismatchException | EnumConstantNotPresentException e) {
+                System.out.println("Wrong input");
+            }
+        }
+
         int ans = 0;
         for (SpaceMarine spaceMarine : lhm.values()) {
             if (spaceMarine.getWeaponType().equals(weaponType)) {

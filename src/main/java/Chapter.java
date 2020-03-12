@@ -15,10 +15,9 @@ public class Chapter implements Comparable<Chapter> {
     @Override
     public String toString() {
         return "{" +
-                "\"name\":\"" + name + '\'' +
+                "\"name\":\"" + name +
                 "\", \"marinesCount\":" + marinesCount +
-                ", \"world\":\"" + world + '\'' +
-                "" +
+                ", \"world\":\"" + world +
                 "\"}";
     }
 

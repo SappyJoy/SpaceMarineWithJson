@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -16,7 +17,16 @@ public class CommandInsert extends Command {
     @Override
     public void execute(Scanner sc) {
         System.out.print("\tInput a key: ");
-        int key = sc.nextInt();
+        int key;
+        while (true) {
+            try {
+                key = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Input should be integer");
+                sc.next();
+            }
+        }
         SpaceMarine sm = new SpaceMarine();
         sm.scan(sc);
         lhm.put(key, sm);
