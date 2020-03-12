@@ -2,10 +2,10 @@ import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Command which changes an element by given id
+ */
 public class CommandUpdate extends Command {
-    /**
-     * Command which changes an element by given id
-     */
     private Map<Integer, SpaceMarine> lhm;
 
     public CommandUpdate(Map<Integer, SpaceMarine> lhm) {

@@ -1,10 +1,10 @@
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * When calling this command, displays the entire collection in the console
+ */
 public class CommandShow extends Command {
-    /**
-     * When calling this command, displays the entire collection in the console
-     */
     private Map<Integer, SpaceMarine> lhm;
     public CommandShow(Map<Integer, SpaceMarine> lhm) {
         this.name = "show";

@@ -2,10 +2,10 @@ import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Command adding a new item to the collection
+ */
 public class CommandInsert extends Command {
-    /**
-     * Command adding a new item to the collection
-     */
     private Map<Integer, SpaceMarine> lhm;
     public CommandInsert(Map<Integer, SpaceMarine> lhm) {
         this.name = "insert";

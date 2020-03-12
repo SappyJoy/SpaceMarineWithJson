@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * Complete the entire program
+ */
 public class CommandExit extends Command {
-    /**
-     * Complete the entire program
-     */
 
     public CommandExit() {
         this.name = "exit";

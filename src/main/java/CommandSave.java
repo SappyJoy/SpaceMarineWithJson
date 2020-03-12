@@ -4,10 +4,10 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Saves the collection to a json-file
+ */
 public class CommandSave extends Command {
-    /**
-     * Saves the collection to a json-file
-     */
     Map<Integer, SpaceMarine> lhm;
     File file;
 

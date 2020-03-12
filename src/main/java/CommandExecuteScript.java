@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * Command to execute commands from a file
+ */
 public class CommandExecuteScript extends Command {
-    /**
-     * Command to execute commands from a file
-     */
 
     Map<Integer, SpaceMarine> lhm;
     File file;
