@@ -7,6 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Shows info about collection
+ */
 public class CommandInfo extends Command {
 
     Map<Integer, SpaceMarine> lhm;
@@ -18,7 +21,7 @@ public class CommandInfo extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) {
         String typeOfCollection = lhm.getClass().getSimpleName();
         java.time.LocalDateTime creationDate = LocalDateTime.MAX;
         for (SpaceMarine spaceMarine : lhm.values()) {

@@ -3,10 +3,10 @@ import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class that represents space marine - element of collection
+ */
 public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
-    /**
-     * @param
-     */
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -67,6 +67,10 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
         return chapter;
     }
 
+    /**
+     * Scans element from input stream with invitation to enter
+     * @param sc
+     */
     void scan(Scanner sc) {
         while (true) {
             try {

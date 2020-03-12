@@ -1,27 +1,26 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 
+/**
+ * A simple json scanner
+ */
 public class WorkWithJson {
     File file;
-    FileInputStream fis;
+    InputStreamReader isr;
     String str;
     LinkedHashMap<Integer, SpaceMarine> lhm;
 
     public WorkWithJson(File file) throws IOException {
         this.file = file;
-        fis = new FileInputStream(file);
-        byte[] data = new byte[(int) file.length()];
-        fis.read(data);
-        fis.close();
+        isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
+        char[] data = new char[(int) file.length()];
+        isr.read(data);
+        isr.close();
 
-        str = new String(data, "UTF-8");
+        str = new String(data);
         lhm = new LinkedHashMap<>();
         makeMapFromJsonString(str);
     }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class CommandShow extends Command {
     /**
-     * Выводит в консоль всю коллекцию
+     * When calling this command, displays the entire collection in the console
      */
     private Map<Integer, SpaceMarine> lhm;
     public CommandShow(Map<Integer, SpaceMarine> lhm) {
@@ -15,7 +15,7 @@ public class CommandShow extends Command {
     @Override
     public void execute(Scanner sc) {
         for (int i : lhm.keySet()) {
-            System.out.println("key=" + i + ", value=" + lhm.get(i));
+            System.out.println("{\"key\":" + i + ", \"value\":{" + lhm.get(i) + "}");
         }
     }
 }

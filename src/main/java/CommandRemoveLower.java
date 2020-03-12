@@ -4,6 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Command which removes from the collection all elements smaller than the specified
+ */
 public class CommandRemoveLower extends Command {
 
     Map<Integer, SpaceMarine> lhm;
@@ -15,7 +18,7 @@ public class CommandRemoveLower extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) {
         SpaceMarine spaceMarine = new SpaceMarine();
         spaceMarine.scan(sc);
         Map<Integer, SpaceMarine> copyLhm = new LinkedHashMap<>();

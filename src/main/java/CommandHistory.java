@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Show last 9 used commands
+ */
 public class CommandHistory extends Command {
 
     List<String> history;
@@ -16,7 +19,7 @@ public class CommandHistory extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) {
         List<String> tail = history.subList(Math.max(history.size() - 9, 0), history.size());
         for (String cmd : tail)
             System.out.println(cmd);

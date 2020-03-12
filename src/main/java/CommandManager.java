@@ -1,13 +1,10 @@
 import java.util.HashMap;
 
+/**
+ * CommandManager executes a command corresponding to the input
+ */
 public class CommandManager {
-    public HashMap<String, Command> getHm() {
-        return hm;
-    }
 
-    /**
-     * Менеджер команд - исполняет комаду, соответствующую вводу
-     */
     HashMap<String, Command> hm = new HashMap<>();
 
     void addCommand(String name, Command cmd) {
@@ -16,5 +13,9 @@ public class CommandManager {
 
     Command getCommand(String name) {
         return hm.get(name);
+    }
+
+    public HashMap<String, Command> getHm() {
+        return hm;
     }
 }

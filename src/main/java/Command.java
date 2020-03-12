@@ -2,10 +2,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-abstract class Command {
+/**
+ * Abstract class for executable commands
+ */
+abstract class Command implements Executable {
     String name;
     String description;
-    abstract void execute(Scanner sc) throws FileNotFoundException, IOException;
+    public abstract void execute(Scanner sc);
     String getName() {
         return name;
     }

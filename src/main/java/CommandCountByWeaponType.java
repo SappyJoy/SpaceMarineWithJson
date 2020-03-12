@@ -4,6 +4,9 @@ import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Command that displays the number of elements whose weaponType field value is equal to the specified
+ */
 public class CommandCountByWeaponType extends Command {
 
     private Map<Integer, SpaceMarine> lhm;
@@ -15,7 +18,7 @@ public class CommandCountByWeaponType extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) {
         String value;
         Weapon weaponType;
         while (true) {

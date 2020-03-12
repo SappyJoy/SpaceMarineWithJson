@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class CommandSave extends Command {
     /**
-     * Сохраняет коллекцию в файл в виде toString()
+     * Saves the collection to a json-file
      */
     Map<Integer, SpaceMarine> lhm;
     File file;
@@ -19,8 +19,14 @@ public class CommandSave extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException {
-        PrintWriter pw = new PrintWriter(file);
+    public void execute(Scanner sc) {
+        PrintWriter pw = null;
+        try {
+            pw = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            return;
+        }
         pw.flush();
         if (!lhm.isEmpty()) {
             pw.write("{\"array\":[");

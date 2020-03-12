@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class CommandExit extends Command {
     /**
-     *  Завершает программу
+     * Complete the entire program
      */
 
     public CommandExit() {

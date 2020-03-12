@@ -1,6 +1,6 @@
 public class Chapter implements Comparable<Chapter> {
     /**
-     * Класс главы
+     * Chapter is a simple class which represents chapter
      */
     private String name; //Поле не может быть null, Строка не может быть пустой
     private int marinesCount; //Значение поля должно быть больше 0, Максимальное значение поля: 1000

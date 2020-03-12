@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 
 public class CommandExecuteScript extends Command {
     /**
-     * Класс для исполнения команд из файла
+     * Command to execute commands from a file
      */
 
     Map<Integer, SpaceMarine> lhm;
@@ -22,11 +22,17 @@ public class CommandExecuteScript extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws IOException {
+    public void execute(Scanner sc) {
         List<String> history = new LinkedList<>();
         String fileName = sc.next();
         fileName = makePath(fileName);
-        FileInputStream fileInputStream = new FileInputStream(fileName);
+        FileInputStream fileInputStream;
+        try {
+            fileInputStream = new FileInputStream(fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            return;
+        }
         Scanner in = new Scanner(new InputStreamReader(fileInputStream));
         // Создать новый файл, если имя файла указано некорректно запросить повторить ввод
         while (in.hasNextLine()) {

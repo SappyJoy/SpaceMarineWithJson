@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CommandUpdate extends Command {
     /**
-     * Изменяет элемент по заданному id
+     * Command which changes an element by given id
      */
     private Map<Integer, SpaceMarine> lhm;
 

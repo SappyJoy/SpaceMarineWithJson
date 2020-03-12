@@ -2,6 +2,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Command that shows information about every command that user can use
+ */
 public class CommandHelp extends Command {
 
     CommandManager commandManager;
@@ -13,7 +16,7 @@ public class CommandHelp extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) {
         System.out.println("The options are:\n");
         for (Command cmd : commandManager.getHm().values()) {
             String name = cmd.getName();

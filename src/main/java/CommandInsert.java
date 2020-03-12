@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CommandInsert extends Command {
     /**
-     * Команда, добавляющая новый элемент в коллекцию
+     * Command adding a new item to the collection
      */
     private Map<Integer, SpaceMarine> lhm;
     public CommandInsert(Map<Integer, SpaceMarine> lhm) {

@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * Command that prints the values of the chapter field of all elements in ascending order
+ */
 public class CommandPrintFieldAscendingChapter extends Command {
 
     Map<Integer, SpaceMarine> lhm;
@@ -15,7 +18,7 @@ public class CommandPrintFieldAscendingChapter extends Command {
     }
 
     @Override
-    public void execute(Scanner sc) throws FileNotFoundException, IOException {
+    public void execute(Scanner sc) {
         ArrayList<SpaceMarine> sortByChapter = new ArrayList<>(lhm.values());
         Comparator<SpaceMarine> comparator = new Comparator<SpaceMarine>() {
             @Override

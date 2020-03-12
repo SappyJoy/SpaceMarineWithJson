@@ -2,9 +2,12 @@ import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Command which removes an item from the collection by its key
+ */
 public class CommandRemoveKey extends Command {
     /**
-     * Удаляет элемент по ключу
+     * Removes an item from the collection by its key
      */
     private Map<Integer, SpaceMarine> lhm;
     public CommandRemoveKey(Map<Integer, SpaceMarine> lhm) {

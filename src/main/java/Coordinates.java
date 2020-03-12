@@ -1,3 +1,6 @@
+/**
+ *Class which represents coordinates
+ */
 public class Coordinates implements Cloneable{
     private long x; //Поле не может быть null
     private long y; //Максимальное значение поля: 254

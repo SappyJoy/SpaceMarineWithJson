@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CommandClear extends Command {
     /**
-     * Команда, стирающая всю коллекцию
+     * Command which clear all collection
      */
     private Map<Integer, SpaceMarine> lhm;
     public CommandClear(Map<Integer, SpaceMarine> lhm) {
