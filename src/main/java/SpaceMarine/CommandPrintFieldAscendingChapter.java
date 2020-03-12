@@ -1,7 +1,9 @@
+package SpaceMarine;
+
 import java.util.*;
 
 /**
- * Command that prints the values of the chapter field of all elements in ascending order
+ * SpaceMarine.Command that prints the values of the chapter field of all elements in ascending order
  */
 public class CommandPrintFieldAscendingChapter extends Command {
 

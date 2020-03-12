@@ -1,7 +1,9 @@
+package SpaceMarine;
+
 import java.util.HashMap;
 
 /**
- * CommandManager executes a command corresponding to the input
+ * SpaceMarine.CommandManager executes a command corresponding to the input
  */
 public class CommandManager {
 

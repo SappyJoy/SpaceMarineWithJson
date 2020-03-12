@@ -1,3 +1,5 @@
+package SpaceMarine;
+
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -101,7 +103,7 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
 
     @Override
     public String toString() {
-        return "\"SpaceMarine\":{" +
+        return "\"SpaceMarine.SpaceMarine\":{" +
                 "\"id\":" + id +
                 ", \"name\":\"" + name + '\"' +
                 ", \"coordinates\":" + coordinates +

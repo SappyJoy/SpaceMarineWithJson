@@ -1,9 +1,11 @@
+package SpaceMarine;
+
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command that displays the number of elements whose weaponType field value is equal to the specified
+ * SpaceMarine.Command that displays the number of elements whose weaponType field value is equal to the specified
  */
 public class CommandCountByWeaponType extends Command {
 

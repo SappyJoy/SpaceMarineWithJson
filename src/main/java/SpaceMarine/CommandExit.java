@@ -1,3 +1,5 @@
+package SpaceMarine;
+
 import java.util.Scanner;
 
 /**

@@ -1,8 +1,10 @@
+package SpaceMarine;
+
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command which clear all collection
+ * SpaceMarine.Command which clear all collection
  */
 public class CommandClear extends Command {
     private Map<Integer, SpaceMarine> lhm;

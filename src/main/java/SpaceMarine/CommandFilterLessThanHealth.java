@@ -1,9 +1,11 @@
+package SpaceMarine;
+
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command that displays elements whose health field value is less than the specified
+ * SpaceMarine.Command that displays elements whose health field value is less than the specified
  */
 public class CommandFilterLessThanHealth extends Command {
 

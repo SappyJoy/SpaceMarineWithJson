@@ -1,3 +1,5 @@
+package SpaceMarine;
+
 import java.io.*;
 import java.util.*;
 
@@ -36,7 +38,7 @@ public class Main {
             }
             Command cmd = commandManager.getCommand(name);
             if (cmd == null) {
-                System.out.println("Command not found");
+                System.out.println("SpaceMarine.Command not found");
             } else {
                 cmd.execute(sc);
                 history.add(name);

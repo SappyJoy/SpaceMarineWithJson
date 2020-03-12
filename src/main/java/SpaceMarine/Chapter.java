@@ -1,5 +1,7 @@
+package SpaceMarine;
+
 /**
- * Chapter is a simple class which represents chapter
+ * SpaceMarine.Chapter is a simple class which represents chapter
  */
 public class Chapter implements Comparable<Chapter> {
     private String name; //Поле не может быть null, Строка не может быть пустой

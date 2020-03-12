@@ -1,9 +1,11 @@
+package SpaceMarine;
+
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command which changes an element by given id
+ * SpaceMarine.Command which changes an element by given id
  */
 public class CommandUpdate extends Command {
     private Map<Integer, SpaceMarine> lhm;

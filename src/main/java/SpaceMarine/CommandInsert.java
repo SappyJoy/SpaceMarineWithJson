@@ -1,9 +1,11 @@
+package SpaceMarine;
+
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command adding a new item to the collection
+ * SpaceMarine.Command adding a new item to the collection
  */
 public class CommandInsert extends Command {
     private Map<Integer, SpaceMarine> lhm;

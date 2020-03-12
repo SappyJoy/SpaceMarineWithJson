@@ -1,17 +1,19 @@
+package SpaceMarine;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command that removes from the collection all items that exceed the specified
+ * SpaceMarine.Command which removes from the collection all elements smaller than the specified
  */
-public class CommandRemoveGreater extends Command {
+public class CommandRemoveLower extends Command {
 
     Map<Integer, SpaceMarine> lhm;
 
-    public CommandRemoveGreater(Map<Integer, SpaceMarine> lhm) {
-        this.name = "remove_greater";
-        this.description = "Removes from the collection all items that exceed the specified";
+    public CommandRemoveLower(Map<Integer, SpaceMarine> lhm) {
+        this.name = "remove_lower";
+        this.description = "Removes from the collection all elements smaller than the specified";
         this.lhm = lhm;
     }
 
@@ -23,7 +25,7 @@ public class CommandRemoveGreater extends Command {
         for (Map.Entry<Integer, SpaceMarine> entry : lhm.entrySet()) {
             int key = entry.getKey();
             SpaceMarine value = entry.getValue();
-            if (value.compareTo(spaceMarine) <= 0) {
+            if (value.compareTo(spaceMarine) >= 0) {
                 copyLhm.put(key, value);
             }
         }

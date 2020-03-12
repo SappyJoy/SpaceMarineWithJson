@@ -1,3 +1,5 @@
+package SpaceMarine;
+
 /**
  * Class which represents weapon types
  */

@@ -1,8 +1,10 @@
+package SpaceMarine;
+
 import java.io.*;
 import java.util.*;
 
 /**
- * Command to execute commands from a file
+ * SpaceMarine.Command to execute commands from a file
  */
 public class CommandExecuteScript extends Command {
 
@@ -49,7 +51,7 @@ public class CommandExecuteScript extends Command {
             if (name.equals("execute_script")) {
                 System.out.println("You can't use \'execute_script\' in script file");
             } else if (cmd == null) {
-                System.out.println("Command not found");
+                System.out.println("SpaceMarine.Command not found");
             } else {
                 cmd.execute(in);
                 history.add(name);

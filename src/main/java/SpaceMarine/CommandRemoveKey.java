@@ -1,9 +1,11 @@
+package SpaceMarine;
+
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Command which removes an item from the collection by its key
+ * SpaceMarine.Command which removes an item from the collection by its key
  */
 public class CommandRemoveKey extends Command {
     /**

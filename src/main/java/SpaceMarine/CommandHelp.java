@@ -1,7 +1,9 @@
+package SpaceMarine;
+
 import java.util.Scanner;
 
 /**
- * Command that shows information about every command that user can use
+ * SpaceMarine.Command that shows information about every command that user can use
  */
 public class CommandHelp extends Command {
 
