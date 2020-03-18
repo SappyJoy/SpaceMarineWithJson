@@ -2,6 +2,7 @@ package SpaceMarine;
 
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -68,6 +69,26 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
         return chapter;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpaceMarine that = (SpaceMarine) o;
+        return Float.compare(that.health, health) == 0 &&
+                loyal == that.loyal &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(coordinates, that.coordinates) &&
+                Objects.equals(creationDate, that.creationDate) &&
+                weaponType == that.weaponType &&
+                meleeWeapon == that.meleeWeapon &&
+                Objects.equals(chapter, that.chapter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coordinates, creationDate, health, loyal, weaponType, meleeWeapon, chapter);
+    }
+
     /**
      * Scans element from input stream with invitation to enter
      * @param sc
@@ -91,6 +112,7 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
                 meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
                 System.out.print("\tInput chapter(name, count of marines and world): ");
                 chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
+                System.out.println();
                 break;
             } catch (InputMismatchException | IllegalArgumentException e) {
                 System.out.println("Wrong Input");
@@ -99,11 +121,26 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
         }
     }
 
+    void scanFromFile(Scanner sc) {
+        try {
+            name = sc.next();
+            id = ++curId;
+            coordinates = new Coordinates(sc.nextLong(), sc.nextLong());
+            health = sc.nextFloat();
+            loyal = sc.nextBoolean();
+            weaponType = Weapon.valueOf(sc.next().toUpperCase());
+            meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
+            chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
+        } catch (InputMismatchException | IllegalArgumentException e) {
+            System.out.println("Wrong Input");
+            sc.nextLine();
+        }
+    }
 
 
     @Override
     public String toString() {
-        return "\"SpaceMarine.SpaceMarine\":{" +
+        return "\"SpaceMarine\":{" +
                 "\"id\":" + id +
                 ", \"name\":\"" + name + '\"' +
                 ", \"coordinates\":" + coordinates +

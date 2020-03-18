@@ -1,0 +1,21 @@
+help
+info
+insert 100 Jose_Arcadio_Buendia 10 5 1000 true plasma_gun chain_sword chapter_1 1 100_years_of_solitude
+insert 101 Ursula_Iguaran 200 10 670 true flamer chain_axe chapter_2 1 100_years_of_solitude
+show
+update 1 Jesebel 0 0 10000 false flamer chain_sword Holly_World 3 Uga-Chaka
+remove_key 101
+show
+clear
+insert 1 Jose_Arcadio 10 10 800 true plasma_gun chain_sword chapter_2 1 100_years_of_solitude
+insert 2 Colonel_Aureliano_Buendia 20 10 900 true plasma_gun chain_sword chapter_3 1 100_years_of_solitude
+insert 3 Amaranta 1000 -20 500 true plasma_gun chain_sword chapter_10 1 100_years_of_solitude
+insert 4 Rebeca 200 20 600 true plasma_gun chain_sword chapter_8 1 100_years_of_solitude
+execute_script script.txt
+remove_greater Rebeca 200 20 600 true plasma_gun chain_sword chapter_8 1 100_years_of_solitude
+remove_lower Jose_Arcadio 10 10 800 true plasma_gun chain_sword chapter_2 1 100_years_of_solitude
+show
+history
+count_by_weapon_type plasma_gun
+filter_less_than_health 1000
+print_field_ascending_chapter

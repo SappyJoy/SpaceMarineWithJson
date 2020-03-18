@@ -38,7 +38,7 @@ public class Main {
             }
             Command cmd = commandManager.getCommand(name);
             if (cmd == null) {
-                System.out.println("SpaceMarine.Command not found");
+                System.out.println("Command not found");
             } else {
                 cmd.execute(sc);
                 history.add(name);
@@ -83,7 +83,7 @@ public class Main {
         return file;
     }
     private static String makePath(String fileName) {
-        return "./src/main/resources/" + fileName + ".json";
+        return "" + fileName + "";
     }
     private static String getFileName() {
         Scanner in = new Scanner(System.in);

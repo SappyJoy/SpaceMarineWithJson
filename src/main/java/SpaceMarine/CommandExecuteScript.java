@@ -38,20 +38,23 @@ public class CommandExecuteScript extends Command {
         // Создать новый файл, если имя файла указано некорректно запросить повторить ввод
         while (in.hasNextLine()) {
             // !!!!! Если присутствует комманда execute_script, проверить не ссылается ли она на тот же файл
-            String name;
-            while (true) {
+            String name = "";
+            while (in.hasNextLine()) {
                 try {
                     name = in.next();
                     break;
                 } catch (InputMismatchException e) {
                     System.out.println("Wrong input");
+                } catch (NoSuchElementException e) {
+                    continue;
                 }
             }
             Command cmd = commandManager.getCommand(name);
             if (name.equals("execute_script")) {
                 System.out.println("You can't use \'execute_script\' in script file");
+                in.nextLine();
             } else if (cmd == null) {
-                System.out.println("SpaceMarine.Command not found");
+                // System.out.println("Command not found");
             } else {
                 cmd.execute(in);
                 history.add(name);
@@ -60,6 +63,6 @@ public class CommandExecuteScript extends Command {
     }
 
     private static String makePath(String fileName) {
-        return "./src/main/resources/" + fileName + ".txt";
+        return  fileName + "";
     }
 }
