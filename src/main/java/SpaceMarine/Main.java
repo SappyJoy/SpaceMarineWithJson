@@ -22,6 +22,7 @@ public class Main {
         CommandManager commandManager = new CommandManager();
         addCommands(commandManager, lhm, file, history);
 
+        System.out.println("For help, type \"help\"");
         // Главный цикл, получающий на вход комманду и выполняющий её
         run(sc, commandManager, history);
     }

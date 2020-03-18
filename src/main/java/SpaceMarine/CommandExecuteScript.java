@@ -14,7 +14,7 @@ public class CommandExecuteScript extends Command {
 
     public CommandExecuteScript(Map<Integer, SpaceMarine> lhm, File file, CommandManager commandManager) {
         this.name = "execute_script [name of script file]";
-        this.description = "Reads and executes the script from the specified file (Placed in \"resources\" Folder." +
+        this.description = "Reads and executes the script from the specified file" +
                 " The script contains commands in " +
                 "the same form in which they are entered by the user interactively.";
         this.lhm = lhm;

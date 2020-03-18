@@ -10,7 +10,7 @@ public class CommandPrintFieldAscendingChapter extends Command {
     Map<Integer, SpaceMarine> lhm;
 
     public CommandPrintFieldAscendingChapter(Map<Integer, SpaceMarine> lhm) {
-        this.name = "print_field_ascending";
+        this.name = "print_field_ascending_chapter";
         this.description = "Print the values of the chapter field of all elements in ascending order";
         this.lhm = lhm;
     }
@@ -28,7 +28,7 @@ public class CommandPrintFieldAscendingChapter extends Command {
         };
         sortByChapter.sort(comparator);
         for (SpaceMarine sm : sortByChapter) {
-            System.out.println(sm);
+            System.out.println(sm.getChapter());
         }
     }
 }
