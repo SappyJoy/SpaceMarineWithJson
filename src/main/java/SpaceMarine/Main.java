@@ -1,6 +1,7 @@
 package SpaceMarine;
 
 import java.io.*;
+import java.nio.file.AccessDeniedException;
 import java.util.*;
 
 /**
@@ -11,8 +12,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        File file = createFile(sc, args);
-
+        File file = checkFile(args);
         LinkedHashMap<Integer, SpaceMarine> lhm;
         // добавить элементы из файла в lhm
         WorkWithJson workWIthJson = new WorkWithJson(file);
@@ -26,6 +26,8 @@ public class Main {
         // Главный цикл, получающий на вход комманду и выполняющий её
         run(sc, commandManager, history);
     }
+
+
     private static void run(Scanner sc, CommandManager commandManager, List<String> history) {
         while(true) {
             String name;
@@ -46,6 +48,8 @@ public class Main {
             }
         }
     }
+
+
     private static void addCommands(CommandManager commandManager, LinkedHashMap<Integer, SpaceMarine> lhm, File file,
                                     List<String> history) {
         commandManager.addCommand("insert", new CommandInsert(lhm));
@@ -65,27 +69,32 @@ public class Main {
         commandManager.addCommand("help", new CommandHelp(commandManager));
         commandManager.addCommand("execute_script", new CommandExecuteScript(lhm, file, commandManager));
     }
-    private static File createFile(Scanner scanner, String[] args) {
-        String fileName = "data";
-        if (args.length > 0)
-            fileName = args[0];
-        File file;
-        while (true) {
-            String relativePath = makePath(fileName);
-            try {
-                file = new File(relativePath);
-                file.createNewFile();
-                break;
-            } catch (IOException e) {
-                System.err.println("Wrong input");
-                fileName = getFileName();
-            }
+
+
+    private static File checkFile(String[] args) {
+        String fileName = "";
+        if (args.length <= 0) {
+            System.out.println("You should enter name of file in main arguments");
+            System.exit(0);
+        }
+        File file = new File(args[0]);
+        if (!file.exists()) {
+            System.out.println("There is no such file");
+            System.exit(0);
+        }
+        if (!file.canWrite() || !file.canRead()) {
+            System.out.println("You have not got enough permissions to this file");
+            System.exit(0);
         }
         return file;
     }
+
+
     private static String makePath(String fileName) {
         return "" + fileName + "";
     }
+
+
     private static String getFileName() {
         Scanner in = new Scanner(System.in);
         return in.next();

@@ -94,47 +94,30 @@ public class SpaceMarine implements Cloneable, Comparable<SpaceMarine> {
      * @param sc
      */
     void scan(Scanner sc) {
-        while (true) {
-            try {
-                System.out.print("\tInput a name: ");
-                name = sc.next();
-                id = ++curId;
-                System.out.print("\tInput coordinates(x, y): ");
-                coordinates = new Coordinates(sc.nextLong(), sc.nextLong());
-                System.out.print("\tInput health: ");
-                health = sc.nextFloat();
-                System.out.print("\tInput loyal(true or false): ");
-                loyal = sc.nextBoolean();
-                System.out.print("\tInput weapon type\n\t" +
-                        "(PLASMA_GUN, COMBI_PLASMA_GUN, FLAMER, INFERNO_PISTOL, HEAVY_FLAMER): ");
-                weaponType = Weapon.valueOf(sc.next().toUpperCase());
-                System.out.print("\tInput melee weapon(CHAIN_SWORD, CHAIN_AXE, POWER_BLADE): ");
-                meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
-                System.out.print("\tInput chapter(name, count of marines and world): ");
-                chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
-                System.out.println();
-                break;
-            } catch (InputMismatchException | IllegalArgumentException e) {
-                System.out.println("Wrong Input");
-                sc.nextLine();
-            }
-        }
-    }
+        ValidateInput in = new ValidateInput(sc);
 
-    void scanFromFile(Scanner sc) {
-        try {
-            name = sc.next();
-            id = ++curId;
-            coordinates = new Coordinates(sc.nextLong(), sc.nextLong());
-            health = sc.nextFloat();
-            loyal = sc.nextBoolean();
-            weaponType = Weapon.valueOf(sc.next().toUpperCase());
-            meleeWeapon = MeleeWeapon.valueOf(sc.next().toUpperCase());
-            chapter = new Chapter(sc.next(), sc.nextInt(), sc.next());
-        } catch (InputMismatchException | IllegalArgumentException e) {
-            System.out.println("Wrong Input");
-            sc.nextLine();
-        }
+        System.out.print("Input a name: ");
+        name = sc.next();
+        id = ++curId;
+        System.out.print("Input coordinates(x, y): ");
+        long x = in.validateLong();
+        long y = in.validateLong();
+        coordinates = new Coordinates(x, y);
+        System.out.print("Input health: ");
+        health = in.validateFloat();
+        System.out.print("Input loyal(true or false): ");
+        loyal = in.validateBool();
+        System.out.print("Input weapon type" +
+                "(PLASMA_GUN, COMBI_PLASMA_GUN, FLAMER, INFERNO_PISTOL, HEAVY_FLAMER): ");
+        weaponType = in.validateWeapon();
+        System.out.print("Input melee weapon(CHAIN_SWORD, CHAIN_AXE, POWER_BLADE): ");
+        meleeWeapon = in.validateMeleeWeapon();
+        System.out.print("Input chapter(name, count of marines and world): ");
+        String nameChapter = sc.next();
+        int count = in.validatePositiveInt();
+        String nameWorld = sc.next();
+        chapter = new Chapter(nameChapter, count, nameWorld);
+        System.out.println();
     }
 
 

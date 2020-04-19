@@ -17,17 +17,9 @@ public class CommandInsert extends Command {
 
     @Override
     public void execute(Scanner sc) {
-        System.out.print("\tInput a key: ");
-        int key;
-        while (true) {
-            try {
-                key = sc.nextInt();
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("Input should be integer");
-                sc.next();
-            }
-        }
+        System.out.print("Input a key: ");
+        ValidateInput in = new ValidateInput(sc);
+        int key = in.validateInt();
         SpaceMarine sm = new SpaceMarine();
         sm.scan(sc);
         lhm.put(key, sm);
